@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace LegosInClassExercise.MiniFigures.Parts
+{
+    class Legs
+    {
+        public int NumberOfLegs { get; set; }
+        public PantLength PantLength { get; set; }
+        public bool BareFoot { get; set; }
+        public int VerticalLeap { get; set; }
+
+        public virtual void Kick()
+        {
+            UseLegs("kick");
+        }
+
+        public void Dance()
+        {
+            UseLegs("dance");
+
+        }
+
+        public void Walk()
+        {
+            UseLegs("walk");
+        }
+
+        void UseLegs(string activity)
+        {
+            var shoesOrNot = BareFoot ? "without shoes" : "with shoes";
+
+            if (NumberOfLegs <= 0)
+            {
+                Console.WriteLine("No legs, can't kick");
+                return;
+            }
+
+            Console.WriteLine($"The {NumberOfLegs} legs {activity} {shoesOrNot} while wearing {PantLength}.");
+
+
+        }
+    }
+    enum PantLength
+    {
+        Shorts,
+        Capris,
+        Pants,
+        None,
+    }
+}

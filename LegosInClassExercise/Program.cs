@@ -8,8 +8,7 @@ namespace LegosInClassExercise
     {
         static void Main(string[] args)
         {
-            var minifigure = new MiniFigure();
-            minifigure.Head = new YodaHead
+            var head = new YodaHead
             {
                 EyeColor = "Brown",
                 HairColor = "Blue",
@@ -17,16 +16,20 @@ namespace LegosInClassExercise
                 NumberOfEyes = 3,
             };
 
-            var fatHead = new FatHead();
-            fatHead.Talk();
-            minifigure.Head.Think();
+            var torso = new YetiTorso();
 
-            switch (minifigure.Head)
-            {
-                case YodaHead h:
-                    h.Battle();
-                    break;
-            }
+            var legs = new ZombieLegs();
+           
+            var YodaYetiZombie = new MiniFigure(head, torso, legs);
+            YodaYetiZombie.Battle();
+
+            var fatHead = new FatHead();
+            var pirateTorso = new PirateTorso(HandType.Hook);
+            var centaurLegs = new CentaurLegs();
+
+            var fathEadedCentaurPirate = new MiniFigure(fatHead, pirateTorso, centaurLegs);
+            fathEadedCentaurPirate.Battle();
+
         }
     }
 }

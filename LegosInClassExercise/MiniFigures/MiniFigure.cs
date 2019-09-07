@@ -4,16 +4,24 @@ namespace LegosInClassExercise.MiniFigures
 {
     class MiniFigure
     {
-        public Head Head { get; set; }
+        readonly Head _head;
+        readonly Torso _torso;
+        readonly Legs _legs;
 
-        public Torso Torso { get; set; }
+        public MiniFigure(Head head, Torso torso, Legs legs)
+        {
+            _head = head;
+            _torso = torso;
+            _legs = legs;
+        }
 
         public void Battle()
         {
-            Head.Talk();
-            System.Console.WriteLine("hi");
-            Torso.Flex();
-            Torso.Fight();
+            _legs.Walk();
+            _head.Talk();
+            _torso.Flex();
+            _torso.Fight();
+            _legs.Kick();
         }
 
     }
